@@ -1,0 +1,28 @@
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] arr1 = {2,3,1};
+        int[] arr2 ={6,4,5};
+        int[] array = singleSortedArray(arr1,arr2);
+        for (int i:array) {
+            System.out.println(i);
+        }
+
+    }
+
+    public static int[] singleSortedArray(int[] array1, int[] array2){
+        Arrays.sort(array1);    // In case the arrays are not sorted
+        Arrays.sort(array2);
+        int[] singleArray = new int[array1.length + array2.length];
+
+        for(int i=0;i< array1.length;i++){
+            singleArray[i] = array1[i];         // we copy the array and put in the other array
+        }
+        for(int j = 0;j<array2.length;j++){
+
+            singleArray[array1.length + j] = array2[j]; //same as here
+        }
+        return singleArray;
+    }
+}
